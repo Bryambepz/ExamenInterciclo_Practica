@@ -5,6 +5,7 @@
  */
 package ec.edu.ups.modelo;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
@@ -12,7 +13,8 @@ import java.util.Objects;
  *
  * @author braya
  */
-public abstract class Personas {
+public abstract class Personas implements Serializable{
+//    private String cedula, nombre, apellido, telefono, correo, contrasenia;
     private String cedula;
     private String nombre;
     private String apellido;
@@ -120,7 +122,7 @@ public abstract class Personas {
 
     @Override
     public String toString() {
-        return "Personas{" + "cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", telefono=" + telefono + ", correo=" + correo + ", contrasenia=" + contrasenia + '}';
+        return "Rector - Docente - Estudiante" + "cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", telefono=" + telefono + ", correo=" + correo + ", contrasenia=" + contrasenia + '}';
     }
     
 }

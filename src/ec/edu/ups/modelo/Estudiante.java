@@ -5,13 +5,14 @@
  */
 package ec.edu.ups.modelo;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author braya
  */
-public class Estudiante extends Personas{
+public class Estudiante extends Personas implements Serializable{
     private String cedulaRepresentante;
     private String NombreRepresentante;
     private String ApellidoRepresentante;
@@ -33,6 +34,10 @@ public class Estudiante extends Personas{
         this.correoRepresentante = correoRepresentante;
         this.contraseniaRepresentante = contraseniaRepresentante;
         this.curso = curso;
+    }
+
+    public Estudiante(String cedula, String nombre, String apellido, int edad, String telefono, String correo, String contrasenia) {
+        super(cedula, nombre, apellido, edad, telefono, correo, contrasenia);
     }
 
     public String getCedulaRepresentante() {
@@ -130,7 +135,7 @@ public class Estudiante extends Personas{
 
     @Override
     public String toString() {
-        return "Estudiante{" + "cedulaRepresentante=" + cedulaRepresentante + ", NombreRepresentante=" + NombreRepresentante + ", ApellidoRepresentante=" + ApellidoRepresentante + ", telefonoRepresentante=" + telefonoRepresentante + ", edadRepresentante=" + edadRepresentante + ", correoRepresentante=" + correoRepresentante + ", contraseniaRepresentante=" + contraseniaRepresentante + ", curso=" + curso + '}';
+        return super.toString() + "\n------==> Estudiante{" + "cedulaRepresentante=" + cedulaRepresentante + ", NombreRepresentante=" + NombreRepresentante + ", ApellidoRepresentante=" + ApellidoRepresentante + ", telefonoRepresentante=" + telefonoRepresentante + ", edadRepresentante=" + edadRepresentante + ", correoRepresentante=" + correoRepresentante + ", contraseniaRepresentante=" + contraseniaRepresentante + ", curso=" + curso + '}';
     }
     
 }

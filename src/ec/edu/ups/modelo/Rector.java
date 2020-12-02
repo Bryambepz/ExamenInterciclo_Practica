@@ -5,6 +5,7 @@
  */
 package ec.edu.ups.modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,23 +13,34 @@ import java.util.List;
  *
  * @author braya
  */
-public class Rector extends Personas{
+public class Rector extends Personas implements Serializable{
     private String UnidadEducativa;
     
-    private List<Estudiante> listaEstudiante;
+//    private List<Estudiante> listaEstudiante;
     private List<Docente> listaDocentes;
 
     public Rector() {
         listaDocentes = new ArrayList<>();
-        listaEstudiante = new ArrayList<>();
+//        listaEstudiante = new ArrayList<>();
     }
 
-    public Rector(String UnidadEducativa, List<Estudiante> listaEstudiante, List<Docente> listaDocentes, String cedula, String nombre, String apellido, int edad, String telefono, String correo, String contrasenia) {
+    public Rector(String UnidadEducativa, List<Docente> listaDocentes, String cedula, String nombre, String apellido, int edad, String telefono, String correo, String contrasenia) {
         super(cedula, nombre, apellido, edad, telefono, correo, contrasenia);
         this.UnidadEducativa = UnidadEducativa;
-        this.listaEstudiante = listaEstudiante;
+//        this.listaEstudiante = listaEstudiante;
         this.listaDocentes = listaDocentes;
+        listaDocentes = new ArrayList<>();
+//        listaEstudiante = new ArrayList<>();
     }
+
+    public Rector(String UnidadEducativa, String cedula, String nombre, String apellido, int edad, String telefono, String correo, String contrasenia) {
+        super(cedula, nombre, apellido, edad, telefono, correo, contrasenia);
+        this.UnidadEducativa = UnidadEducativa;
+        listaDocentes = new ArrayList<>();
+//        listaEstudiante = new ArrayList<>();
+    }
+    
+    
 
     public String getUnidadEducativa() {
         return UnidadEducativa;
@@ -38,13 +50,13 @@ public class Rector extends Personas{
         this.UnidadEducativa = UnidadEducativa;
     }
 
-    public List<Estudiante> getListaEstudiante() {
-        return listaEstudiante;
-    }
-
-    public void setListaEstudiante(List<Estudiante> listaEstudiante) {
-        this.listaEstudiante = listaEstudiante;
-    }
+//    public List<Estudiante> getListaEstudiante() {
+//        return listaEstudiante;
+//    }
+//
+//    public void setListaEstudiante(List<Estudiante> listaEstudiante) {
+//        this.listaEstudiante = listaEstudiante;
+//    }
 
     public List<Docente> getListaDocentes() {
         return listaDocentes;
@@ -54,9 +66,25 @@ public class Rector extends Personas{
         this.listaDocentes = listaDocentes;
     }
 
+    public boolean createDocente(Docente doc){
+        return listaDocentes.add(doc);
+    }
+    
+//    public boolean createEstudiante(Estudiante est){
+//        return listaEstudiante.add(est);
+//    }
+//    
+//    public Docente read(String nombre){
+//        return listaDocentes.stream().filter(d -> nombre.equals(d.getNombre())).findFirst().get();
+//    }
+    
+//    public Docente readD(String docente){
+//        var docente = listaDocentes.stream().filter(d -> docente.equals(d.getNombre())).findFirst().get();
+//    }
+    
     @Override
     public String toString() {
-        return "Rector{" + "UnidadEducativa=" + UnidadEducativa + ", listaEstudiante=" + listaEstudiante + ", listaDocentes=" + listaDocentes + '}';
+        return super.toString() + "\n------==> Rector{" + "UnidadEducativa=" + UnidadEducativa + ", listaDocentes=" + listaDocentes + '}';
     }
     
 }
